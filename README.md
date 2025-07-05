@@ -8,6 +8,14 @@ Welcome to the **L2M** repository! This is the official implementation of our IC
 
 ---
 
+> 🚨 **Important Notice:**  
+> This repository is the **official implementation** of the ICCV 2025 paper authored by Sharpiless.  
+>  
+> Please be aware that the repository at [https://github.com/chelseaaxy/L2M](https://github.com/chelseaaxy/L2M) is **NOT an official implementation** and is not authorized by the original authors.  
+>  
+> Always refer to this repository for the authentic and up-to-date code.
+
+
 ## 🧠 Overview
 
 **Lift to Match (L2M)** is a two-stage framework for **dense feature matching** that lifts 2D images into 3D space to enhance feature generalization and robustness. Unlike traditional methods that depend on multi-view image pairs, L2M is trained on large-scale, diverse single-view image collections.
