@@ -1,5 +1,8 @@
+# Learning Dense Feature Matching via Lifting Single 2D Image to 3D Space
 
-# Lift to Match (L2M): Learning Dense Feature Matching via Lifting Single 2D Image to 3D Space
+![L2M Logo](https://img.shields.io/badge/L2M-Official%20Implementation-blue)
+
+Welcome to the **L2M** repository! This is the official implementation of our ICCV'25 paper titled "Learning Dense Feature Matching via Lifting Single 2D Image to 3D Space".
 
 *Accepted to ICCV 2025 Conference*
 
