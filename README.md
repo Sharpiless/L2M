@@ -100,6 +100,9 @@ If desired, you can run sky_seg.py to mask out sky regions, which are typically 
 python sky_seg.py
 ```
 
+![ADE_train_00000971](https://github.com/user-attachments/assets/ef34c52c-7bff-4be6-94dd-9aeedeef0f60)
+
+
 ## 🙋‍♂️ Acknowledgements
 
 We build upon recent advances in [ROMA](https://github.com/Parskatt/RoMa), [GIM](https://github.com/xuelunshen/gim), and [FiT3D](https://github.com/ywyue/FiT3D).
