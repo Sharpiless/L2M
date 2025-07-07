@@ -137,6 +137,9 @@ python relight.py
 ```
 All outputs will be saved under the configured output directory, including original view, novel views, and their camera metrics with dense depth.
 
+<img width="565" alt="demo-data" src="https://github.com/user-attachments/assets/a9f29fd8-6616-44de-9325-409708560525" />
+
+
 #### Stage 2.3: Sky Masking (Optional)
 
 If desired, you can run sky_seg.py to mask out sky regions, which are typically textureless and not useful for matching. This can help reduce noise and focus training on geometrically meaningful regions.
