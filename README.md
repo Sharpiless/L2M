@@ -100,7 +100,7 @@ model_path = "Liangyingping/L2M-Inpainting"  # 替换为你自己的模型路径
 
 # 加载模型
 pipe = StableDiffusionInpaintPipeline.from_pretrained(
-    model_path, torch_dtype=torch.float16, local_files_only=True
+    model_path, torch_dtype=torch.float16
 )
 pipe.to("cuda")  # 如果有 GPU，可以将模型加载到 GPU 上
 
@@ -122,9 +122,10 @@ image2save = make_image_grid([init_image, mask_image, image], rows=1, cols=3)
 image2save.save("image2save_ours.png")
 ```
 
-Download the model from [hugging-face](https://huggingface.co/Liangyingping/L2M-Inpainting).
+Or you can manually download the model from [hugging-face](https://huggingface.co/Liangyingping/L2M-Inpainting).
 
-![text2troom](https://github.com/user-attachments/assets/f0622fb6-01a8-45f6-95c7-b9fbe2cd2629)
+<img width="702" alt="novel-view-mpi" src="https://github.com/user-attachments/assets/25398b47-e61f-4dad-a90e-d30fbda2233f" />
+
 
 #### Stage 2.2: Relighting for Appearance Diversity
 To improve feature robustness under varying lighting conditions, we apply a physics-inspired relighting pipeline to the synthesized 3D scenes.
