@@ -124,8 +124,9 @@ image2save.save("image2save_ours.png")
 
 Or you can manually download the model from [hugging-face](https://huggingface.co/Liangyingping/L2M-Inpainting).
 
-<img width="702" alt="novel-view-mpi" src="https://github.com/user-attachments/assets/25398b47-e61f-4dad-a90e-d30fbda2233f" />
+<img width="701" alt="novel-view-sup" src="https://github.com/user-attachments/assets/32bf30f3-7ad4-4e9c-aa94-c1a28c866ddd" />
 
+<img width="702" alt="novel-view-mpi" src="https://github.com/user-attachments/assets/25398b47-e61f-4dad-a90e-d30fbda2233f" />
 
 #### Stage 2.2: Relighting for Appearance Diversity
 To improve feature robustness under varying lighting conditions, we apply a physics-inspired relighting pipeline to the synthesized 3D scenes.
