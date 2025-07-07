@@ -81,6 +81,10 @@ The disp_path should contain grayscale disparity maps predicted by Depth Anythin
 Below are examples of synthesized novel views with ground-truth dense correspondences, generated in Stage 2.1:
 
 <div align="center"> <img src="./assets/0_d_00d1ae6aab6ccd59.jpg" width="45%"> <img src="./assets/2_a_02a270519bdb90dd.jpg" width="45%"> </div> <br/>
+
+![test_000002809](https://github.com/user-attachments/assets/a9c62860-b153-40ab-95cb-fa14cb59490c)
+
+
 These demonstrate both the geometric diversity and high-quality pixel-level correspondence labels used for supervision.
 
 #### Stage 2.2: Relighting for Appearance Diversity
