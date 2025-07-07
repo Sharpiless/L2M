@@ -87,6 +87,45 @@ Below are examples of synthesized novel views with ground-truth dense correspond
 
 These demonstrate both the geometric diversity and high-quality pixel-level correspondence labels used for supervision.
 
+For novel-view inpainting, we also provide a better inpainting model fine-tuned from Stable-Diffusion-2.0-Inpainting:
+
+```
+from diffusers import StableDiffusionInpaintPipeline
+import torch
+from diffusers.utils import load_image, make_image_grid
+import PIL
+
+# 指定模型文件路径
+model_path = "Liangyingping/L2M-Inpainting"  # 替换为你自己的模型路径
+
+# 加载模型
+pipe = StableDiffusionInpaintPipeline.from_pretrained(
+    model_path, torch_dtype=torch.float16, local_files_only=True
+)
+pipe.to("cuda")  # 如果有 GPU，可以将模型加载到 GPU 上
+
+init_image = load_image("assets/debug_masked_image.png")
+mask_image = load_image("assets/debug_mask.png")
+W, H = init_image.size
+
+prompt = "a photo of a person"
+image = pipe(
+    prompt=prompt,
+    image=init_image,
+    mask_image=mask_image,
+    h=512, w=512
+).images[0].resize((W, H))
+
+print(image.size, init_image.size)
+
+image2save = make_image_grid([init_image, mask_image, image], rows=1, cols=3)
+image2save.save("image2save_ours.png")
+```
+
+Download the model from [hugging-face](https://huggingface.co/Liangyingping/L2M-Inpainting).
+
+![text2troom](https://github.com/user-attachments/assets/f0622fb6-01a8-45f6-95c7-b9fbe2cd2629)
+
 #### Stage 2.2: Relighting for Appearance Diversity
 To improve feature robustness under varying lighting conditions, we apply a physics-inspired relighting pipeline to the synthesized 3D scenes.
 
