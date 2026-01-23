@@ -6,58 +6,35 @@ Welcome to the **L2M** repository! This is the official implementation of our IC
 
 *Accepted to ICCV 2025 Conference*
 
+## Quick Start
+
+```python
+from romatch import l2mpp_model
+import torch
+import cv2
+
+device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+
+l2mpp = l2mpp_model(device=device)
+# Match
+warp, certainty = l2mpp.match("assets/sacre_coeur_A.jpg", "assets/sacre_coeur_A.jpg", device=device)
+matches, certainty = l2mpp.sample(warp, certainty)
+```
+
+## 🔗 Pretrained Model Weights
+
+Pretrained checkpoints for **L2M++** are publicly available on Hugging Face:
+
+👉 **Hugging Face:**  
+https://huggingface.co/datasets/Liangyingping/L2Mpp-checkpoints
+
+The model will automatically download the required weights when running inference.
+
 ---
-
-> 🚨 **Important Notice:**  
-> This repository is the **official implementation** of the ICCV 2025 paper authored by Sharpiless.  
->  
-> Please be aware that the repository at [https://github.com/chelseaaxy/L2M](https://github.com/chelseaaxy/L2M) is **NOT an official implementation** and is not authorized by the original authors.  
->  
-> Always refer to this repository for the authentic and up-to-date code.
-
 
 ## 🧠 Overview
 
 **Lift to Match (L2M)** is a two-stage framework for **dense feature matching** that lifts 2D images into 3D space to enhance feature generalization and robustness. Unlike traditional methods that depend on multi-view image pairs, L2M is trained on large-scale, diverse single-view image collections.
-
-- **Stage 1:** Learn a **3D-aware ViT-based encoder** using multi-view image synthesis and 3D Gaussian feature representation.
-- **Stage 2:** Learn a **feature decoder** through novel-view rendering and synthetic data, enabling robust matching across diverse scenarios.
-
-> 🚧 Code is still under construction.
-
----
-
-## 🧪 Feature Visualization
-
-We compare the 3D-aware ViT encoder from L2M (Stage 1) with other recent methods:
-
-- **DINOv2**: Learning Robust Visual Features without Supervision
-- **FiT3D**: Improving 2D Feature Representations by 3D-Aware Fine-Tuning
-- **Ours: L2M Encoder**
-
-You can download them from the [Releases](https://github.com/Sharpiless/L2M/releases/tag/checkpoints) page.
-
-<div align="center">
-  <img src="./assets/sacre_coeur_A_compare.png" width="90%">
-  <br/>
-</div>
-
-<div align="center">
-  <img src="./assets/sacre_coeur_B_compare.png" width="90%">
-  <br/>
-</div>
-
----
-
-To get the results, make sure your checkpoints and image files are in the correct paths, then run:
-```
-python vis_feats.py \
-  --img_paths assets/sacre_coeur_A.jpg assets/sacre_coeur_B.jpg \
-  --ckpt_dino ckpts/dinov2.pth \
-  --ckpt_fit3d ckpts/fit3d.pth \
-  --ckpt_L2M ckpts/l2m_vit_base.pth \
-  --save_dir outputs_vis_feat
-```
 
 ## 🏗️ Data Generation
 
@@ -95,14 +72,12 @@ import torch
 from diffusers.utils import load_image, make_image_grid
 import PIL
 
-# 指定模型文件路径
-model_path = "Liangyingping/L2M-Inpainting"  # 替换为你自己的模型路径
+model_path = "Liangyingping/L2M-Inpainting"
 
-# 加载模型
 pipe = StableDiffusionInpaintPipeline.from_pretrained(
     model_path, torch_dtype=torch.float16
 )
-pipe.to("cuda")  # 如果有 GPU，可以将模型加载到 GPU 上
+pipe.to("cuda")
 
 init_image = load_image("assets/debug_masked_image.png")
 mask_image = load_image("assets/debug_mask.png")
@@ -124,9 +99,6 @@ image2save.save("image2save_ours.png")
 
 Or you can manually download the model from [hugging-face](https://huggingface.co/Liangyingping/L2M-Inpainting).
 
-<img width="701" alt="novel-view-sup" src="https://github.com/user-attachments/assets/32bf30f3-7ad4-4e9c-aa94-c1a28c866ddd" />
-
-<img width="702" alt="novel-view-mpi" src="https://github.com/user-attachments/assets/25398b47-e61f-4dad-a90e-d30fbda2233f" />
 
 #### Stage 2.2: Relighting for Appearance Diversity
 To improve feature robustness under varying lighting conditions, we apply a physics-inspired relighting pipeline to the synthesized 3D scenes.
