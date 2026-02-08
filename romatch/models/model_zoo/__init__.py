@@ -17,6 +17,7 @@ def l2mpp_model(device, weights=None, dinov2_weights=None, coarse_res = 672, ups
     assert coarse_res[1] % 14 == 0, "Needs to be multiple of 14 for backbone"
     
     if weights is None:
+        print("[loading]:", weight_urls)
         weights = torch.hub.load_state_dict_from_url(weight_urls, map_location=device)
     model = roma_model(resolution=coarse_res, upsample_preds=True,
                weights=weights,dinov2_weights = dinov2_weights,device=device, amp_dtype=amp_dtype)

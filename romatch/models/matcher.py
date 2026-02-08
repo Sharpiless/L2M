@@ -442,7 +442,7 @@ class RegressionMatcher(nn.Module):
         self.name = name
         self.w_resized = w
         self.h_resized = h
-        self.og_transforms = get_tuple_transform_ops(resize=None, normalize=True)
+        # self.og_transforms = get_tuple_transform_ops(resize=None, normalize=True)
         self.sample_mode = sample_mode
         self.upsample_preds = upsample_preds
         self.upsample_res = (14*16*6, 14*16*6)
@@ -618,7 +618,7 @@ class RegressionMatcher(nn.Module):
         *args,
         batched=False,
         device=None,
-        normalize=True
+        normalize=False
     ):
         if device is None:
             device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -686,7 +686,7 @@ class RegressionMatcher(nn.Module):
                 finest_corresps = corresps[finest_scale]
                 torch.cuda.empty_cache()
                 test_transform = get_tuple_transform_ops(
-                    resize=(hs, ws), normalize=True
+                    resize=(hs, ws), normalize=normalize
                 )
                 if isinstance(im_A_input, (str, os.PathLike)):
                     im_A, im_B = test_transform(
