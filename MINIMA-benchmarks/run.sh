@@ -18,7 +18,3 @@
 # CUDA_VISIBLE_DEVICES=5 python test_relative_pose_weather.py --method l2mpp --save_dir saves
 
 # CUDA_VISIBLE_DEVICES=5 python test_relative_pose_weather_v2.py --method l2mpp --save_dir saves
-
-CUDA_VISIBLE_DEVICES=5 python test_relative_pose_waternerf.py --method l2mpp --save_dir saves
-
-    # --ckpt /data6/liangyingping/git-code/gim/weights/l2mpp_mixed0208.ckpt
