@@ -120,7 +120,7 @@ All outputs will be saved under the configured output directory, including origi
 <img width="565" alt="demo-data" src="https://github.com/user-attachments/assets/a9f29fd8-6616-44de-9325-409708560525" />
 
 
-#### Stage 2.3: Sky Masking (Optional)
+#### Stage 2.3: Sky Masking
 
 If desired, you can run sky_seg.py to mask out sky regions, which are typically textureless and not useful for matching. This can help reduce noise and focus training on geometrically meaningful regions.
 
@@ -133,4 +133,16 @@ python sky_seg.py
 
 ## 🙋‍♂️ Acknowledgements
 
-We build upon recent advances in [ROMA](https://github.com/Parskatt/RoMa), [GIM](https://github.com/xuelunshen/gim), and [FiT3D](https://github.com/ywyue/FiT3D).
+We build upon recent advances in [ROMA](https://github.com/Parskatt/RoMa), [GIM](https://github.com/xuelunshen/gim), [MINIMA](https://github.com/LSXI7/MINIMA), and [FiT3D](https://github.com/ywyue/FiT3D).
+
+## Cite Our Paper
+
+```
+@inproceedings{Liang2025L2M,
+  author    = {Yingping Liang and Yutao Hu and Wenqi Shao and Ying Fu},
+  title     = {Learning Dense Feature Matching via Lifting Single 2D Image to 3D Space},
+  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+  year      = {2025},
+  pages     = {6621--6631}
+}
+```
