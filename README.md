@@ -1,5 +1,4 @@
 # L2M: Learning Dense Feature Matching via Lifting Single 2D Image to 3D Space &
-# L2M++: Learning Zero-shot Dense Feature Matching via Lifting Internet Videos to 4D Space
 
 ![L2M Logo](https://img.shields.io/badge/L2M-Official%20Implementation-blue)
 
