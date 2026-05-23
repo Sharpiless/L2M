@@ -79,7 +79,7 @@ import torch
 from diffusers.utils import load_image, make_image_grid
 import PIL
 
-model_path = "Liangyingping/L2M-Inpainting"
+model_path = "Liangyingping/Lift3Dreamer"
 
 pipe = StableDiffusionInpaintPipeline.from_pretrained(
     model_path, torch_dtype=torch.float16
@@ -104,7 +104,16 @@ image2save = make_image_grid([init_image, mask_image, image], rows=1, cols=3)
 image2save.save("image2save_ours.png")
 ```
 
-Or you can manually download the model from [hugging-face](https://huggingface.co/Liangyingping/L2M-Inpainting).
+If you use this inpainting model, please cite our paper:
+```
+@article{LIANG2026,
+title = {Lift3Dreamer: Boosting Text-Driven Novel View Synthesis via Lifted 3D Inpainting Model from Single Images.},
+journal = {Fundamental Research},
+year = {2026},
+issn = {2667-3258},
+author = {Yingping Liang and Ying Fu and Jiaming Liu and Debing Zhang},
+}
+```
 
 
 #### Stage 2.2: Relighting for Appearance Diversity
